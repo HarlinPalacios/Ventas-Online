@@ -8,6 +8,7 @@ import { dbConnection } from './mongo.js'
 import authRoutes from "../src/auth/auth.routers.js"
 import adminRoutes from "../src/administrador/administrador.routes.js"
 import apiLimiter from '../src/middlewares/validar-cant-peticiones.js'
+import categoRouter from "../src/categoria/cate.routes.js"
 
 const middlewares = (app) => {
     app.use(express.urlencoded({extended: false}))
@@ -21,6 +22,7 @@ const middlewares = (app) => {
 const routes = (app) => {
     app.use("/ventas/v1/auth", authRoutes)
     app.use("/ventas/v1/user", adminRoutes)
+    app.use("/ventas/v1/categoria", categoRouter)
 }
 
 const conectarDB = async () => {

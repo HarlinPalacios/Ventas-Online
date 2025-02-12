@@ -21,7 +21,7 @@ const createMulterConfig = (destinationPath) => {
             }
         }),
         fileFilter: (req, file, cb) => {
-            if(MIMETYPES.imcludes(file.mimetype)) cb(null, true)
+            if(MIMETYPES.includes(file.mimetype)) cb(null, true)
                 else cb (new Error(`Solamente se aceptan archivos con los sieguientes tipos${MIMETYPES.join(" ")}`))
         },
         limits: {
